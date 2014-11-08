@@ -5,7 +5,7 @@
 # First read the data
 myData <- read.csv("./power_cons/h_P_C.txt", header=TRUE, sep=";", na.strings="?", nrows=2075259, check.names=FALSE, stringsAsFactors=FALSE, comment.char= "", quote='\"')
 
-# let R know what you mean by Dates 
+# use as.Date to set $Date variable 
 myData$Date <- as.Date(myData$Date, format="%d/%m/%Y")
 
 # get the dates required for the project: Feb. 1-2, 2007
@@ -18,7 +18,6 @@ dateTime <- paste(as.Date(data_for_Dates$Date), data_for_Dates$Time)
 data_for_Dates$Datetime <- as.POSIXct(dateTime)
 
 # use with for plotting expression: with(x, expr) where x is our dataframe or list and expr evaluates contents of x
-## here plot is the expression applied to the following three variables on the given dates 
 with(data_for_Dates, {
      plot(Sub_metering_1 ~ Datetime, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
      lines(Sub_metering_2 ~ Datetime, col = "Red")
