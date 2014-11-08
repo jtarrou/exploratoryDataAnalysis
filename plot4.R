@@ -5,7 +5,7 @@
 # First read the data
 myData <- read.csv("./power_cons/h_P_C.txt", header=TRUE, sep=";", na.strings="?", nrows=2075259, check.names=FALSE, stringsAsFactors=FALSE, comment.char= "", quote='\"')
 
-# let R know what you mean by Dates 
+# use as.Date to set $Date variable 
 myData$Date <- as.Date(myData$Date, format="%d/%m/%Y")
 
 # get the dates required for the project: Feb. 1-2, 2007
