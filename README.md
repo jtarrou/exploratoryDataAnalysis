@@ -2,6 +2,8 @@ exploratoryDataAnalysis
 =======================
 repo for projects on EDA
 =======================
+** Please see CodeBook.md for the functions used in retrieving data and producing graphs
+
 The Assignment:
 
 Introduction
