@@ -3,7 +3,7 @@
 # First read the data
 myData <- read.csv("./power_cons/h_P_C.txt", header=TRUE, sep=";", na.strings="?", nrows=2075259, check.names=FALSE, stringsAsFactors=FALSE, comment.char= "", quote='\"')
 
-# let R know what you mean by Dates 
+# use as.Date to set $Date variable 
 myData$Date <- as.Date(myData$Date, format="%d/%m/%Y")
 
 # get the dates required for the project: Feb. 1-2, 2007
@@ -15,7 +15,7 @@ dateTime <- paste(as.Date(data_for_Dates$Date), data_for_Dates$Time)
 # the subset, use POSIXct to make sure objects in data_for_Dates$Datetime are proper class
 data_for_Dates$Datetime <- as.POSIXct(dateTime)
 
-# get histogram plot
+# get histogram plot label the graph
 hist(data_for_Dates$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
 
 # save file as directed 	 
